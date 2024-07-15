@@ -39,7 +39,7 @@ export default function Textbox(){
         setalt(<Alert message="Success! text changed to Upper Case."/>)
         setTimeout(() => {
             setalt(null)
-        }, 2500);
+        }, 1500);
         console.log(text)
         setText(document.getElementById("textbox").value.toUpperCase())
         console.log(text)
