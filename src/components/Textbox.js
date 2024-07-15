@@ -4,6 +4,15 @@ export default function Textbox(){
     let [alt,setalt]=useState(null);
     let [text,setText]=useState("Please enter your text here");
     let [numWords,setnumWords]=useState(5);
+    let [disable,setdisable]=useState(true);
+    let click=0;
+    function handleDisable(){
+        if(click==0){
+        document.getElementbyId("textbox").value="";
+            click+=1;
+            setdisable(false)
+        }
+    }
     function insertText(){
         console.log(text)
         setText(document.getElementById("textbox").value)
@@ -37,7 +46,7 @@ export default function Textbox(){
     }
     return(
         <>
-        <textarea id="textbox" className="textarea tw-h-[50vh] tw-w-[80vw] tw-mx-[10vh] tw-my-10 tw-border-2 tw-border-black" value={text} onChange={insertText}></textarea>
+        <textarea id="textbox" disabled={disable} onClick={handleDisable} className="textarea tw-h-[50vh] tw-w-[80vw] tw-mx-[10vh] tw-my-10 tw-border-2 tw-border-black" value={text} onChange={insertText}></textarea>
         <button className="btn1 tw-mx-5 tw-border-black tw-border-opacity-50 hover:tw-border-opacity-100 tw-border-2 tw-rounded-lg tw-bg-white hover:tw-bg-blue-600 hover:tw-text-green-400" onClick={toUpcase}>Change to Upper Case</button>
         {alt}
         <div className="dispWord tw-w-max">
